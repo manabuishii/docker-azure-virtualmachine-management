@@ -3,7 +3,7 @@ Docker container for Azure VirtualMachine Management
 
 # Version
 
-0.3.0
+0.4.0
 
 * [manabuishii/docker-azure-virtualmachine-management - Docker Hub](https://hub.docker.com/r/manabuishii/docker-azure-virtualmachine-management/)
 
@@ -20,11 +20,11 @@ subscription_id: YOURSUBSCRIPTIONID
 ## Help
 
 ```
-docker run --rm -v $PWD:/work manabuishii/docker-azure-virtualmachine-management:0.3.0 help
+docker run --rm -v $PWD:/work manabuishii/docker-azure-virtualmachine-management:0.4.0 help
 ```
 
 ## Start machine
 
 ```
-docker run --rm -v $PWD:/work manabuishii/docker-azure-virtualmachine-management:0.3.0 YOURRESOURCEGROUP YOURVIRTUALMACHINE
+docker run --rm -v $PWD:/work manabuishii/docker-azure-virtualmachine-management:0.4.0 YOURRESOURCEGROUP YOURVIRTUALMACHINE
 ```
