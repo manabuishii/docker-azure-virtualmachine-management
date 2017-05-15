@@ -39,12 +39,15 @@ class VMControl(object):
       vmlist.append(vmstatus)
       vmgr = self._computemanagement_client.virtual_machines.get(resourcegroup, name,expand='instanceview')
       for st in vmgr.instance_view.statuses:
+        #pprint(vars(st))
         # InstanceViewStatus class | Microsoft Docs
         # https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.instanceviewstatus?view=azuremgmtcompute-14.1.0-prerelease
         if st.code is not None and st.code.find('PowerState')==0:
           vmstatus.display_status = st.display_status
+        if st.code is not None and st.code.find('ProvisioningState')==0:
+          vmstatus.provisioning_status = st.display_status
     for vmstatus in vmlist:
-      print("%s\t%s" % (vmstatus.name, vmstatus.display_status))
+      print("%s\t%s\t%s" % (vmstatus.name, vmstatus.display_status, vmstatus.provisioning_status))
 
   def power_off(self, resourcegroup, machinename):
     async_vm = self._computemanagement_client.virtual_machines.power_off(resourcegroup, machinename)
